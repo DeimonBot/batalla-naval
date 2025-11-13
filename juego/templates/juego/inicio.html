@@ -1,25 +1,65 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Batalla Naval</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
         body {
             background-image: url("{% static 'juego/fondo.png' %}");
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             color: white;
-            font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 100px;
         }
         h1 {
             font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px black;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px black;
+        }
+        .botones {
+            display: flex;
+            gap: 20px;
+        }
+        .botones a {
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .botones a:hover {
+            background-color: #1e90ff;
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenido a Batalla Naval</h1>
+    <h1>☠️ Bienvenido a Batalla Naval ☠️</h1>
     <p>Prepárate para hundir barcos enemigos</p>
+    <div class="botones">
+        <a href="{% url 'login' %}">🧨 Iniciar Sesión</a>
+        <a href="{% url 'registro' %}">⚓ Registrarse</a>
+    </div>
 </body>
 </html>

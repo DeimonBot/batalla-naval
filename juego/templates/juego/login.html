@@ -5,14 +5,26 @@
     <meta charset="UTF-8">
     <title>Iniciar Sesión - Batalla Naval</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
         body {
             background-image: url("{% static 'juego/fondo.png' %}");
             background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             color: white;
             text-align: center;
-            padding-top: 100px;
         }
         .form-container {
             background-color: rgba(0, 0, 0, 0.6);
