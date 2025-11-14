@@ -1,0 +1,13 @@
+<script>
+let barcoActual = 5;
+let seleccionadas = [];
+
+document.querySelectorAll('.casilla').forEach(casilla => {
+    casilla.addEventListener('click', () => {
+        if (seleccionadas.length < barcoActual) {
+            casilla.style.backgroundColor = 'green';
+            seleccionadas.push(casilla.dataset.x + casilla.dataset.y);
+        }
+    });
+});
+</script>

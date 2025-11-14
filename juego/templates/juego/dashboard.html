@@ -146,6 +146,24 @@
                 <p>No hay partidas activas.</p>
                 {% endfor %}
             </div>
+
+            <h2>Salas activas</h2>
+            <div class="partidas">
+                {% for sala in salas_activas %}
+                <div class="partida">
+                    <p><strong>Sala creada el {{ sala.fecha_creacion|date:"d M Y H:i" }}</strong></p>
+                    <p>Código: {{ sala.codigo }}</p>
+                    <p>Jugadores: {{ sala.jugador_1.username }}{% if sala.jugador_2 %} vs {{ sala.jugador_2.username
+                        }}{% else %} (esperando oponente){% endif %}</p>
+                    <form method="GET" action="{% url 'ver_sala' sala.codigo %}">
+                        <button type="submit">Entrar a la sala</button>
+                    </form>
+                </div>
+                {% empty %}
+                <p>No hay salas activas.</p>
+                {% endfor %}
+            </div>
+
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="submit" style="margin-top: 20px; background-color: #8c8c8c;">Cerrar sesión</button>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sala {{ sala.codigo }}</title>
+
+     <!-- Fuente gótica desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            background: linear-gradient(to bottom, #3b0a0a, #000000);
+            height: 100%;
+            font-family: 'UnifrakturCook', cursive;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .tablero {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            grid-template-rows: repeat(10, 40px);
+            gap: 2px;
+            margin: 0 auto;
+            width: fit-content;
+            background-color: #222;
+            padding: 10px;
+            border: 2px solid white;
+        }
+
+        .casilla {
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border: 1px solid #666;
+        }
+
+        .casilla:hover {
+            background-color: #666;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sala {{ sala.codigo }}</h1>
+    <div class="info">
+        <p>Jugador 1: {{ sala.jugador_1.username }}</p>
+        <p>Jugador 2: {% if sala.jugador_2 %}{{ sala.jugador_2.username }}{% else %}(esperando oponente){% endif %}</p>
+    </div>
+
+    <div class="tablero">
+        {% for fila in "0123456789" %}
+            {% for columna in "0123456789" %}
+                <div class="casilla" data-x="{{ columna }}" data-y="{{ fila }}"></div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>
